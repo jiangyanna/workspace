@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+    <head>
+
+    </head>
+    <body>
+        <script>
+            function t(a){
+                var a='hello';
+                console.log(a);
+                function a(){
+                    console.log(null);
+                }
+                console.log(a);
+            }
+            t(null);
+            function fn(b){
+                console.log(b);
+                function b(){
+                    console.log(b);
+                }
+                b();
+            }
+            fn(10);
+            function a(b){
+                console.log(b);
+                b = function(){
+                    console.log('inner function b:'+b);
+                };
+                b();
+            }
+            a();
+        </script>
+    </body>
+    
+</html>

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>learning css and node</title>
+		<link rel="stylesheet" type="text/css" href="../css/demo-selector.css"/>
+		<style type="text/css">
+			
+		</style>
+	</head>
+	<body>
+		<ul>
+			<li>
+				<a href='#text1'>css3 chapter1</a>
+			</li>
+			<li>
+				<a href='#text2'>css3 chapter2</a>
+			</li>
+			<li>
+				<a href='../node/01.jpg'>css3 chapter3</a>
+			</li>			
+		</ul>
+		<div id="section1">the example demo one</div>
+		<div id="subsection1-1">the sub example <br/> demo one-one</div>
+		<div id="subsection1-2">the sub example <br/> demo one-two</div>
+		<div id="section2">the example demo two</div>
+		<div id="subsection2-1">the sub example <br/> demo two-one</div>
+		<div id="subsection2-2">the sub example <br/> demo two-two</div>
+		<table border="1" cellpadding="5" cellspacing="5" >
+			<caption>表格的标题</caption>
+			<tr>
+				<th>姓名</th>
+				<th>性别</th>
+				<th>年龄</th>
+				<th>学校</th>
+				<th colspan="2">地址</th>
+			</tr>
+			
+			<tr>
+				<td>李晓红</td>
+				<td>女</td>
+				<td>23</td>
+				<td>北京大学</td>
+				<td>北京-北京市海淀区朝阳通州大兴</td>
+			</tr>
+			<tr>
+				<td>李晓红</td>
+				<td></td>
+				<td>23</td>
+				<td>北京大学</td>
+				<td>北京-北京市海淀区朝阳通州大兴</td>
+			</tr>
+		</table>
+		<div id="text1">
+			<h1>1.target选择器</h1>
+			<p>
+				使用target选择器来对页面中某个target元<br/>
+				素（该元素的id被当作页面中的超链接来使用）指定样式，<br/>
+				该样式只在用户点击了页面中的超链接<br/>
+				并跳转到target元素后起作用
+			</p>
+		</div>
+		<div id="text2">
+			<h1>2.target选择器</h1>
+			<p>
+				使用target选择器来对页面中某个target元<br/>
+				素（该元素的id被当作页面中的超链接来使用）指定样式，<br/>
+				该样式只在用户点击了页面中的超链接<br/>
+				并跳转到target元素后起作用
+			</p>
+		</div>
+		<div>
+			<h2>文章标题奇数1</h2>
+			<p>正文内容1</p>
+			<h2>文章标题偶数2</h2>
+			<p>正文内容2</p>
+			<h2>文章标题奇数3</h2>
+			<p>正文内容3</p>
+			<h2>文章标题偶数4</h2>
+			<p>正文内容4</p>
+		</div>
+		<h3>列表A</h3>
+		<ul>
+			<li>first list item one</li>
+		</ul>
+		<h3>列表B</h3>
+		<ul>
+			<li>first list item one</li>
+			<li>second list item two</li>
+			<li>third list item three</li>
+			<li>forth list item four</li>
+			<li>fifth list item five</li>
+			<li>sixth list item six</li>
+		</ul>
+		<form>
+			<p>姓名：<input type='text' name="name" required/></p>
+			<p>性别：
+				<input type="radio" name="radio" value="male"/>男
+				<input type="radio" name="radio" value="female"/>女
+			</p>
+			<p>年龄(0-100)：<input type='number' name="name" min=0 max=100/></p>
+			<p>学校：<input type='text' name="name"/></p>
+			<p>地址：<input type='text' name="name" id="inputext" value="中华人民共和国北京市海淀区永泰东里小区" 
+				title="中华人民共和国北京市海淀区永泰东里小区" readonly="readonly"/></p>
+			<p>兴趣：
+				<input type="checkbox" checked/>阅读
+				<input type="checkbox"/>旅游
+				<input type="checkbox"/>看电影
+				<input type="checkbox"/>上网
+			</p>
+			<label><input type="radio" class="is-enable" disabled/>禁用</label>
+			<label><input type="radio" class="is-enable" />可用</label>
+		</form>
+	</body>		
+</html> 

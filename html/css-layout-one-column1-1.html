@@ -1,0 +1,154 @@
+<!doctype html>
+<html>
+    <head>
+        <title>单列布局样式2</title>
+        <style>
+            div{
+                width:100%;
+            }
+            .head{
+                border:2px solid fuchsia;
+            }
+            header,main,footer{
+                max-width:960px;
+                margin:0px auto;
+            }
+            header{
+                
+                height:200px;
+                
+            }
+            main{
+                
+                height:600px;
+                border:2px solid darkgreen;
+            }
+            .submain-1{
+                width:100px;
+                height:100px;
+                border:2px solid rebeccapurple;
+                margin-bottom:20px;
+            }
+            .submain-2{
+                width:100px;
+                height:100px;
+                border:2px solid palegreen;
+                margin-top:10px;
+            }
+            .foot{
+                border:2px solid crimson;
+            }
+            footer{
+                
+                height:200px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class='head'>
+            <header>
+                <h1>外边距margin垂直方向叠加问题如何解决？</h1>
+            </header>
+        </div>
+        
+        <main>
+            <div class='submain-1'>
+
+            </div>
+            <div class='submain-2'>
+                    
+            </div>
+        </main>
+        <div class='foot'>
+            <footer>
+
+            </footer>
+        </div>
+        <script>
+            var str='cat,bat,fat,sat';
+            var pattern=/(.at)/g;
+            var matches1 = str.match(pattern);
+            var matches = pattern.exec(str);
+            var len1 = matches1.length;
+            var len = matches.length;
+            console.log('string match res length:'+len1);
+            for(var i=0;i<len1;i++){
+                console.log('string match method res:'+i+' '+matches1[i]+'\n');
+            }
+            console.log('\n\nregexp exec res length:'+len);
+            for(var j=0;j<len;j++){
+                console.log('\nregexp exec method res:'+j+' '+matches[j]);
+            }
+            var res=str.replace(/(.at)/g,'word($12)');
+            console.log('\n res='+res);
+            console.log('\n str='+str);
+            (function(){
+                var str='abCdEfgHighLmn';
+                var res=str.replace(/[A-Z]/g,function(match,pos,str){
+                    return '_'+match.toLowerCase();
+                });
+                console.log("convert:"+res);
+            })();
+            function A(){
+
+            };
+            function B(){
+
+            };
+            A.prototype = {  //重写整个原型对象
+                fun:function(){
+
+                }
+            };
+            //A.prototype.fun = function(){};
+            var a=new A();
+            console.log(a.constructor==A);
+            //console.log(a.prototype.constructor===A);
+            console.log(a.hasOwnProperty('constructor'));
+            console.log(a instanceof A);
+
+            A.prototype = new B();
+            var b=new A();
+            console.log('--------------------------------');
+            console.log(b.constructor===A);
+            console.log(B.prototype.constructor===A);
+            console.log(b.constructor.prototype.constructor===A);
+            console.log(b.hasOwnProperty('constructor'));
+            console.log(b instanceof A);
+            console.log(b instanceof B);
+
+            var b={x:4};
+            function fn2(o){
+                this.x=o.x;
+            }
+            fn2.prototype={
+                init:function(){
+                    return this.x;
+                }
+            }
+            var fn3=new fn2({x:5});
+            console.log(fn3.init());
+            console.log('fn3.init:'+fn3.init);
+            console.log('fn2.init:'+fn2.init);
+            console.log(fn3.init===fn2.prototype.init);
+            console.log(fn3.init.call(b));
+            var c=fn3.init;
+            console.log(c());
+
+            setTimeout(function(){
+                console.log(1);
+            },0);
+            new Promise(function(resolve){
+                console.log(2);
+                for(var i=0;i<10;i++){
+                    i===9&&resolve();
+                }
+                console.log(3);
+            }).then(function(){
+                console.log(4);
+            })
+            console.log(5);
+
+        </script>  
+    </body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+    <head>
+
+    </head>
+    <body>
+        <script>
+            (
+                function(){ //输出0,1,2,3,4
+                    for (var i = 0; i < 5; i++) {
+                        console.log('1--------'+i);
+                    }
+                }
+            )();
+            (function(){//开始输出一个5，然后每隔1s输出一个5
+                for (var i = 0; i < 5; i++) {
+                    setTimeout(function() {
+                        console.log('2---------'+i);
+                    }, 1000 * i);
+                }
+            })();
+           (function(){//0s输出0，第1s输出1，第2s输出2，
+                for (var i = 0; i < 5; i++) {
+                    (function(i) {
+                        setTimeout(function() {
+                        console.log('3-----------'+i);
+                        }, i * 1000);
+                    })(i);
+                }
+            })();
+            (function(){   //每隔1s输出一次5
+                for (var i = 0; i < 5; i++) {
+                    (function() {
+                        setTimeout(function() {
+                        console.log('4-------------'+i);
+                        }, i * 1000);
+                    })(i);
+                }
+            })();
+             (function(){//同普通for循环一样，直接一次性输出0,1,2,3,4
+                for (var i = 0; i < 5; i++) {
+                    setTimeout((function(i) {
+                        console.log('5---------------'+i);
+                    })(i), i * 1000);
+                }
+            })();
+            
+            //事件循环：promise事件是在当前事件循环的末尾执行，setTimeout是在下一个事件循环的开头执行
+            (function(){
+                setTimeout(function(){
+                    console.log(1);
+                },0);
+                new Promise(function(resolve){
+                    console.log(2);
+                    for(var i=0;i<10;i++){
+                        i===9&&resolve();
+                    }
+                    console.log(3);
+                }).then(function(){
+                    console.log(4);
+                })
+                console.log(5);
+            })();
+        </script>
+    </body>
+    
+</html>

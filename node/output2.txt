@@ -1,0 +1,1 @@
+使用stream写入二进制数据...						ending

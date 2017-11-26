@@ -1,0 +1,74 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <style>
+            iframe{
+                width:400px;
+                height:400px;
+                border:1px solid red;
+            }
+        </style>
+    </head>
+    <body>
+        <nav>
+            <ul>
+                <li><a href='#title'>文章标题</a></li>
+                <li><a href='#comments'>文章评论</a></li>
+            </ul>
+        </nav>
+        <article>
+            <header>
+                <h1 id="title">我的父亲母亲</h1>
+                <p>发表日期：<time pubdate datetime="2015/10/22">2015/10/20</time></p>
+            </header>
+            <p>
+                <b>苹果</b>，植物类水果，多次花水果。。。。（这是苹果文章的正文）
+            </p>
+            <section>
+                <h2 id='comments'>文章评论</h2>
+                <article>
+                    <header>
+                        <h3>评论者：蒋鹏飞</h3>
+                        <p><time pubdate datetime='2014-12-12T12:10'>1小时前</time></p>
+                    </header>
+                    <p>我喜欢吃苹果，我最喜欢的苹果品种是富士。</p>
+                </article>
+                <article>
+                        <header>
+                            <h3>评论者：蒋盐飞</h3>
+                            <p><time pubdate datetime='2014-12-12T12:10'>1小时前</time></p>
+                        </header>
+                        <p>苹果我不喜欢吃，我喜欢吃橘子。</p>
+                    </article>
+            </section>
+            <footer><small>版权信息归公司所有，侵权必究</small></footer>
+        </article>
+        <article>
+            <h1>使用article嵌入插件</h1>
+            <object>
+                <param name="allowFullScreen" value="true">
+                <embed src="#" width="600px" height="300px"></embed>
+            </object>
+        </article>
+        
+        <h1>可编辑列表</h1>
+        <ol start='5' reversed contenteditable>
+            <li>列表元素1</li>
+            <li>列表元素2</li>
+            <li>列表元素3</li>
+            <li>列表元素4</li>
+        </ol>
+        <h1>可编辑的空白页-iframe</h1>
+        <iframe src="./h5-edit-iframe.html" name="richedit"></iframe>
+        <script>
+            /*window.onload=function(){
+                var iframe = document.getElementsByName("richedit");
+                var a = iframe[0].contentWindow;
+                a.document.designMode='on';
+                //var b = iframe[0].contentDocument;
+                //iframe[0].contentWindow.designMode = 'on';
+            }*/
+        </script>
+    </body>
+</html>    

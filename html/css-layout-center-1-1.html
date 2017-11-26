@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>元素水平居中实现方式</title>
+        <style>
+            .inline-parent{
+                border:1px solid red;
+                height:20px;
+            }
+            .inline-parent label{
+                line-height:20px;
+            }
+            .img-parent{
+                height:600px;
+                width:100%;
+                border:1px solid green;
+                vertical-align:middle;
+            }
+            .img-center{
+                height:300px; 
+            }
+            .inline-multiparent{
+                display:table-cell;
+                border:1px solid hotpink;
+                width:100%;
+                height:300px;
+                vertical-align:middle;
+            }
+            .block-parent{
+                display:table-cell;
+                vertical-align:middle;
+                width:100%;
+                height:300px;
+                border:2px solid teal;
+            }
+            .block-parent2{
+                position:relative;
+                min-height:150px;
+                border:1px solid slateblue;
+            }
+            .block-center2{
+                position:absolute;
+                top:50%;
+                transform:translateY(-50%);
+            }
+            .block-list-parent{
+                border:1px solid slateblue;
+                width:100%;
+                height:400px;
+                display:flex;
+                align-items:center;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>单行内联元素垂直居中 父元素高度=文本行高inline-height</h1>
+        <div class='inline-parent'>
+            <label>this is a inline element</label>
+        </div>
+        <h1>图片垂直居中</h1>
+        <div class='img-parent'>
+            <img class='img-center' src='../images/01.jpg'/>
+        </div>
+        <h1>多行内联元素垂直居中</h1>
+        <div class='inline-multiparent'>
+            <span>this is a inline element this is a inline element this is a inline element<br>
+                this is a inline element this is a inline elementthis is a inline element<br>
+            </span>
+        </div>
+        <h1>块级元素垂直居中-method1</h1>
+        <div class='block-parent'>
+            <p class='block-center'>网站布局教程，使用css布局实现父级元素的宽度和高度根据该部分文字内容自适应，图片的宽度和高度是一定的，
+                p标签距离左面图像的间距为10px。网站布局教程，使用css布局实现父级元素的宽度和高度根据该部分文字内容自适应，
+                图片的宽度和高度是一定的，
+            </p>
+        </div>
+        <h1>块级元素垂直居中-method2</h1>
+        <div class='block-parent2'>
+            <p class='block-center2'>网站布局教程，使用css布局实现父级元素的宽度和高度根据该部分文字内容自适应，图片的宽度和高度是一定的，
+                p标签距离左面图像的间距为10px。网站布局教程，使用css布局实现父级元素的宽度和高度根据该部分文字内容自适应，
+                图片的宽度和高度是一定的，
+            </p>
+        </div>
+        <h1>垂直居中通用方法flex</h1>
+        <div class='block-list-parent'>
+            <ul>
+                <li><a href='#'>pre</a></li>
+                <li><a href='#'>1</a></li>
+                <li><a href='#'>2</a></li>
+                <li><a href='#'>3</a></li>
+                <li><a href='#'>4</a></li>
+                <li><a href='#'>5</a></li>
+                <li><a href='#'>next</a></li>
+            </ul>
+        </div>
+    </body>
+</html>

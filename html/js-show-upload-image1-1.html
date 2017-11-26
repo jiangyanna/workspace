@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+    <head>
+
+    </head>
+    <body>
+        <div>
+            <input type='file' onchange='showImage(this)'/>
+            <img src='' id='myImg' />
+        </div>
+        <script>
+            /*上传图片并显示的原理，input的onchange事件中检测文件并读取文件
+            */
+            function showImage(source){
+                var file = source.files[0];
+                if(window.FileReader){
+                    var fr = new FileReader();
+                    fr.onloadend = function(e){
+                        document.getElementById('myImg').src=e.target.result;
+                    }
+                    fr.readAsDataURL(file)
+                }
+            }
+        </script>
+    </body>
+    
+</html>

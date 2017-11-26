@@ -1,0 +1,87 @@
+<!doctype html>
+<html>
+    <head>
+        <title>单列布局样式1</title>
+        <style>
+            header,main,footer{
+                max-width:960px;
+                margin:0px auto;
+            }
+            header{
+                height:200px;
+                border:2px solid fuchsia;
+                position:relative;
+            }
+            header p{
+                position:absolute;
+                left:50%;
+                top:50%;
+                transform:translate(-50%,-50%);
+            }
+            main{
+                /*height:600px;*/
+                min-height:200px;
+                border:2px solid darkgreen;
+            }
+            main img{
+                height:200px;
+                float:left;
+            }
+            main section{
+                margin-left:320px;
+            }
+            main section ol{
+                margin-left:20px;
+            }
+            main section:after{
+                content:'';
+                display:block;
+                clear:both;
+            }
+            footer{
+                height:200px;
+                border:2px solid crimson;
+            }
+        </style>
+    </head>
+    <body>
+        <header>
+            <p>定宽，水平居中的单列布局，样式1为header，content、footer宽度都相同，不会占满浏览器的最宽宽度，
+                但当浏览器宽度缩小低于其最小宽度时，宽度自适应<br/>
+                水平居中 margin:0px auto;<br/>
+                宽度自适应 max-width:1000px;
+            </p>
+        </header>
+        <main>
+            <img src='../images/01.jpg'>
+            <section>
+                主内容区域由两部分组成，左侧固定宽度和高度的图片，右侧是文本内容，右侧内容与左边图像间距为10px，右侧的宽
+                度和高度是随着文本内容的宽度和
+                高度自适应的，主内容区域的宽度和高度是根据其子元素文本内容的宽度和高度自适应的。主要的布局方法有三种，具
+                体方法介绍如下所示：<br/>
+                <ol>
+                    <li>
+                        float浮动布局，设置左侧图像为左浮动，高度为300px；css代码为img{float:left;height:300px}，设置右侧内容
+                        与左边图像的外边距，p{margin-left:110px;}
+                    </li>
+                    <li>
+                        position定位布局，须设置父元素为相对定位main{position:relative;}，然后设置图像为绝对定位，其css代码为：
+                        img{position:absolute;left:0;top:0;height:300px;}，设置右侧内容
+                        与左边图像的外边距，p{margin-left:110px;}；
+                    </li>
+                    <li>
+                        flex弹性盒布局，设置父元素main{display:flex;}，左侧图像img{height:300px;},右侧内容p{margin-left:10px;}
+                    </li>
+                    <li>
+                        <small>tips:自适应高度的父元素，如果其子元素为浮动或绝对定位，即子元素脱离了文档流，父元素的高度塌陷，
+                            因此上面三种方法，float和position均需对父元素设置一个最小高度main{min-height:300px;}
+                        </small>
+                    </li>
+                </ol>
+            </section>
+        </main>
+        <footer>
+
+        </footer>
+    </body>
+</html>

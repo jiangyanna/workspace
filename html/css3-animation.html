@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>css3 animation</title>
+        <link type="text/css" href="../css/demo-animation.css" rel="stylesheet"/>
+    </head>
+    <body>
+        <div id="animation-1" >
+           <figure>
+                <figcaption>We are married</figcaption>
+                <img src="../images/01.jpg" alt="marry images"/>
+                <img src="../images/02.jpg" alt="marry images"/>
+                <img src="../images/03.jpg" alt="marry images"/>
+            </figure> 
+        </div>
+        <script>
+            var div=document.getElementById("animation-1");
+            div.onclick = function(e){
+                var imgs = document.getElementsByTagName("img");
+                var len = imgs.length;
+                imgs[0].style.transform='rotate(90deg)';
+                imgs[0].style.transition='transform 1s linear';
+                setTimeout(function(){
+                    imgs[0].style.transform='rotate(0)';
+                imgs[0].style.transition='transform 1s linear';
+                    div.appendChild(imgs[0]);
+                },2000);                
+            }
+        </script>
+    </body>
+</html>

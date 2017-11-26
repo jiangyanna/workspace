@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+    <head>
+
+    </head>
+    <body>
+        <script>
+            var colors=[3,4,5,6];
+            var del = colors.splice(-6);//若负数参数值加数组长度仍为负值，则默认按0处理（slice()方法亦是）
+            console.log('del:'+del+'   colors:'+colors);
+
+            var color = 'red';
+            var obj = {
+                color:'blue'
+            }
+            function sayColor(){
+                console.log('color:'+this.color);
+            }
+            var sayObjColor = sayColor.bind(obj);
+            sayObjColor();  //blue
+            console.log(sayColor===sayObjColor);//false
+            console.log('sayColor:'+sayColor);//saycolor函数内容原样输出
+            console.log('sayObjColor:'+sayObjColor);//function () { [native code] }
+
+            console.log(`Hello ${color}`);//hello red
+
+            //实现数组的push方法
+            Array.prototype.addVal = function(){
+                this.splice.apply(this,[this.length,0].concat(Array.prototype.slice.call(arguments)));
+                return this.length;
+            }
+
+            //实现数组的shift方法
+            Array.prototype.delHead = function(){
+                return this.splice(0,1)[0];
+            };
+            var arr = [2,3,4];
+            var len=arr.addVal([5,6]);
+            console.log('len:'+len+'  arr:'+arr);
+            console.log(arr.delHead());
+
+          
+        </script>
+    </body>
+    
+</html>

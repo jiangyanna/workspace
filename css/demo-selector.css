@@ -1,0 +1,253 @@
+/**
+属性选择器，格式为：[属性名通配符=属性值];[attr*=val]:属性值中包含val指定的字符； 
+[attr^=val]:属性值以val指定的字符开头； [attr$=val]:属性值以val指定的字符结尾
+*/
+[id^=section]{
+    font-size:20px;
+    font-weight:bold; 
+}
+[id*=\-]{
+    margin-left:30px;
+}
+[id$=\-1]{
+    color:orange;
+}
+a[href$=jpg]:after{
+    content:url('../node/01.jpg');
+    color:green;
+}
+/**
+常用于a标签的伪类选择器E:link E:visited E:hover E:active 
+*/
+a{
+    text-decoration:none;
+    color:#000000;
+}
+a:link{
+    color:#000000;
+}
+a:visited{
+    color:#00ff00;
+}
+a:hover{
+    color:#ff00ff;
+}
+a:active{
+    color:#0000ff;
+}
+
+/**
+伪元素选择器  使用格式为   选择器：伪元素{属性：值}  或   选择器 .类名：伪元素{属性：值}
+first-line:向某个元素中的第一行文字使用样式；
+first-letter：向某个元素中的文字的首字母或第一个字使用样式；
+before：在某个元素之前插入一些内容；
+after：在某个元素后面插入内容
+*/
+p:first-line{
+    color:green;
+    font-weight:bold;
+}
+div:first-letter{
+    font-weight:bold;
+    font-style:italic;
+    font-size:30px;
+}
+[id*=\-]:after{
+    content:'(only for test)';
+    font-size:16px;
+    color:red;
+}
+
+/**
+结构性伪类选择器 
+root:将样式绑定到页面的根元素，根元素是位于文档树中最顶层结构的元素，在html页面中是包含整个页面的“<html>”部分；
+ not:对某个结构元素使用样式，但想排除这个结构元素下面的子结构元素；
+empty:元素内容空白时使用的样式； 
+target:对页面中target元素（该元素id被作为页面中的超链接）指定样式，在用户点击页面的超链接并跳转到target元素后样式生效
+*/
+:root{
+    background:gray;
+}
+body *:not(*){
+    background:lightgreen;
+}
+td:empty{
+    background:yellow;
+}
+:target{
+    background:yellow;
+}
+table{ 
+    background:url("../../fe-exercise/image-video-audio/01.jpg") no-repeat;
+    background-size:100% 100%;
+}
+
+/**
+first-child last-child:对父元素的第一个子元素 最后一个子元素指定样式；若页面中有多个ul列表，对所有列表都适用
+nth-child(正数) nth-last-child(倒数):对指定序号的子元素设置样式，格式 nth-last-child(n){}  <子元素>:nth-child(n){}
+nth-child(odd)：所有正数下来的第奇数个元素；
+nth-last-child(even):所有倒数上去的第偶数个元素；
+nth-child(an+b):循环使用样式;
+*/
+li:first-child{
+    background-color:red;
+}
+li:last-child{
+    color:yellow;
+    font-size:20px;
+}
+li:nth-child(3n+2){
+    background-color:green;
+}
+
+/**
+nth-child、nth-last-child选择器在父元素有多种子元素时有问题，原因：在计算子元素是第奇数个元素还是第偶数个元素时，
+是连同父元素的所有子元素一起计算的。h2:nth-child(odd)/h2:nth-child(2n+1)的含义，并不是
+"针对div元素中第奇数个h2子元素",而是“当div元素中的第奇数个子元素如果是h2时使用”。解决方法使用：
+nth-of-type/nth-last-of-type选择器只针对同类型的子元素进行计算,其使用方法同nth-child、nth-last-child
+*/
+h2:nth-child(2n+1){
+    background:pink;
+}
+h2:nth-child(2n){
+    background:skyblue;
+}
+h2:nth-of-type(odd){
+    background:pink;
+}
+h2:nth-of-type(even){
+    background:skyblue;
+}
+
+/**
+结合使用nth-child,nth-last-child可指定当某个父元素只有一个子元素时才使用的样式
+格式    <子元素>:nth-child(1):nth-last-child(1){}
+only-child可以替代上述实现方法,但样式优先级低于上述实现；同理only-of-type可以替代
+“nth-of-type(1):nth-last-of-type(1)”让样式只对唯一子元素起作用
+*/
+li:nth-child(1):nth-last-child(1){
+    background-color:white;
+}
+li:only-child{
+    background-color:blue;
+}
+li:nth-of-type(1):nth-last-of-type(1){
+    background-color:pink;
+}
+li:only-of-type{
+    background-color:purple;
+}
+
+/**
+UI元素状态伪类选择器：当元素处于某种状态时指定的样式生效，默认状态不生效
+E:hover:当鼠标指针移动到元素上时元素的样式；
+E:active:元素被激活（鼠标在元素上按下还没松开）时使用的样式；
+E:focus:元素获得光标焦点时使用的样式，主要在文本框控件获得焦点并进行文字输入时使用；
+使用方法（所有UI元素状态伪类选择器）  <>:hover{}       input[type="text"]:hover{}
+*/
+input[type=text]:hover{
+    background-color:greenyellow;
+}
+input[type=text]:active{
+    background-color:yellow;
+}
+input[type=text]:focus{
+    background-color:skyblue;
+}
+
+/**
+E:enabled,E:disabled 指定元素处于可用（不可用）状态时的样式
+*/
+input[type="radio"]:enabled{
+    background-color:purple;
+}
+input[type="radio"]:disabled{
+    background-color:red;
+}
+
+/**
+E:read-only 指定元素处于只读状态时的样式；
+E:read-write 指定元素处于非只读状态时的样式；
+*/
+input[type="text"]:read-only{
+    background-color: gray;
+}
+input[type="text"]:read-write{
+    background-color: greenyellow;
+}
+
+/*
+text-overflow:文本溢出包含元素时如何显示，clip修剪；ellipsis显示省略号
+*/
+input[id=inputext]{
+    text-overflow:ellipsis;
+    overflow:hidden;
+}
+/*鼠标悬浮显示全部内容，不过没有显示全*/
+input[id=inputext]:hover{
+    text-overflow:inherit;
+    overflow:visible;
+}
+
+/**
+E:checked:表单中的radio单选框或checkbox复选框处于选中状态时的样式；
+E:default:页面打开时默认处于选取状态的单选框或复选框的样式，tips：即使用户将该单选框或复选框的状态改为非选取状态，
+E:default:中指定的样式依然有效；
+E:indeterminate:页面打开时，一组单选框中没有任何一个单选框被设定为选取状态时整组单选框的样式，若用户选择了其中任何
+一个单选框，该样式被取消.只有opera支持
+*/
+input[type="checkbox"]:checked{
+    outline:2px solid blue;
+}
+input[type="checkbox"]:default{
+    outline:2px solid crimson;
+}
+input[type="checkbox"]:indeterminate{
+    outline:2px solid darkorange;
+}
+
+/**
+E::selection  指定元素处于选中状态时的样式，tips:selection前面有两个冒号
+*/
+p::selection{
+    background:red;
+    color:white;
+}
+
+/**
+E:valid:  E:invalid:用来指定，当元素内容能（不能）通过使用html5为元素添加的诸如required、pattern等
+属性所指定的检查或元素内容不符合规定格式（如type属性为email的input元素：限定元素内容
+必须为有效的email格式）时的样式；
+E:required:用来指定允许使用required属性，且已经指定required的input、select、textarea元素的样式；
+E:optional:用来指定允许使用required属性，且未指定required的input、select、textarea元素的样式；
+E:in-range:用来指定当元素的有效值被限定在一段范围内（通常用max/min属性值来限定），且实际输入值在该范围内时使用的样式；
+E:out-of-range:用来指定当元素的有效值被限定在一段范围内（通常用max/min属性值来限定），且实际输入值在该范围之外时使用的样式；
+*/
+input[type="text"]:invalid{
+    background-color:red;
+}
+input[type="text"]:valid{
+    background-color:white;
+}
+input[type="text"]:required{
+    outline:2px solid purple;
+}
+input[type="text"]:optional{
+    outline:2px solid skyblue;
+}
+input[type="number"]:in-range{
+    background:white;
+}
+input[type="number"]:out-of-range{
+    background:red;
+}
+
+
+/**
+通用兄弟元素选择器，用来指定位于同一个父元素中的某个元素之后的所有其他某个种类的兄弟元素使用的样式；
+使用方法： <子元素> ~<>{子元素之后的同级兄弟元素}
+同级是指子元素和兄弟元素的父元素是同一个元素；
+*/
+h2 ~p{
+    border:3px dashed blue;
+}
